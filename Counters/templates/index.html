@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <style>
+        *{
+            display: flexbox;
+            justify-content: center;
+        }
+    </style>
+    <h1>Counter</h1>
+    <div>
+        <h4>Visited : {{visits}} times</h4>
+    </div>
+    <a href="{{url_for('reset')}}">Reset</a>
+    <a href= "{{url_for('plus_2')}}">Add 2</a>
+</body>
+</html>
