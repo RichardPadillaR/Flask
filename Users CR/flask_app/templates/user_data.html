@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5" >
+        <div class="card" style="width: 18rem;">
+            <div class="card-body d-flex justify-content-between align-items-center align-items-baseline">
+                <h5>User {{ user.id }}</h5>
+                <a href="/">Home</a>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" type="text" name="full_name"> Full Name: {{ user.first_name}} {{user.last_name}} </li>
+                <li class="list-group-item" type="text" name="email">Email: {{ user.email}} </li>
+                <li class="list-group-item" type="text" name="created_at">Created At: {{ user.created_at}} </li>
+                <li class="list-group-item" type="text" name="updated_at">Updated At: {{ user.updated_at}} </li>
+            </ul>
+            <div class="card-body">
+                <a href="/edit_user/{{user.id}}/edit" class="card-link">Edit</a>
+                <a href="/delete_user/{{user.id}}" class="card-link">Delete</a>
+            </div>
+        </div>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+</body>
+</html>
