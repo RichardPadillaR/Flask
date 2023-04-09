@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+    <h1>New Ninja</h1>
+    <form class="p-5 w-50" action="/create_ninja" method="post">
+        <select name='dojo_id' class="form-select" aria-label="Default select example">
+            <option selected>Select Dojo</option>
+            {% for dojo in all_dojos %}
+            <option value='{{dojo.id}}'>{{dojo.name}}</option>
+            {% endfor %}
+        </select>
+        <div class="form-group">
+            <label for="first_name" class='m-2'>First Name</label>
+            <input type="first_name" class="form-control m-2" id="first_name" placeholder="Enter First Name"
+                name="first_name">
+            <label for="last_name" class='m-2'>Last Name</label>
+            <input type="last_name" class="form-control m-2" id="last_name" placeholder="Enter Last Name"
+                name="last_name">
+            <label for="age" class='m-2'>Age</label>
+            <input type="age" class="form-control m-2" id="age" placeholder="Enter Age" name="age">
+            <button methods="post" type="submit" class="btn btn-primary m-2" action="/create_dojo">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

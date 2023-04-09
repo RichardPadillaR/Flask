@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container d-inline-flex gap-3">
+    <form class="p-5 w-50" action="/create_dojo" method = "post">
+        <div class="form-group">
+            <label for="name" class='m-2'>New Dojo</label>
+            <input type="name" class="form-control m-2" id="name"  placeholder="Enter Name" name = "name">
+        <button methods = "post" type= "submit" class="btn btn-primary m-2" action = "/create_dojo" >Submit</button>
+        </div>
+    </form>
+    <table class="table w-25 h-100">
+        <thead class=" d-flex justify-content-center border-primary">
+            <tr>
+                <span><h2><th scope="col">Dojos</th></h2></span>
+            </tr>
+        </thead>
+        <tbody>
+        {% for one_dojo in all_dojos %}
+            <tr class="d-flex justify-content-center align-content-start">
+                <td><a href="/dojos/{{one_dojo.id}}">{{one_dojo.name}}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div >
+        <a href="/ninja_form">Add Ninja</a>
+    </div>
+</div>
+{% endblock %}
