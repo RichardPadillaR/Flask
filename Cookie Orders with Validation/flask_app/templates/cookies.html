@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<h1 class="">Cookie Orders</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Number of Boxes</th>
+        <th scope="col">Cookie Type</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for one_cookie in all_cookies %}
+    <tr>
+        <th scope="row">{{one_cookie.id}}</th>
+        <td>{{one_cookie.customer_name}}</td>
+        <td>{{one_cookie.number_of_boxes}}</td>
+        <td>{{one_cookie.cookie_type}}</td>
+        <td>
+            <ul class="list-inline">
+                <li><a href="/cookies/edit/{{one_cookie.id}}">Edit</a></li>
+            </ul>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <div>
+        <a href="/create_cookie_order">Create Order</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+    <h3>Edit Cookie Order for {{edit_cookie.customer_name}}</h3>
+    <form class="p-5 w-50" action="/cookies/edit/{{edit_cookie.id}}" method = "post">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}  
+                {% for message in messages %}
+                    <p class="">{{message}}</p>   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="customer_name" class='m-2'>Customer Name</label>
+            <input type="text" class="form-control m-2" id="customer_name"  placeholder="{{edit_cookie.customer_name}}" name = "customer_name">
+            <label for="cookie_type" class='m-2'>Cookie Type</label>
+            <input type="text" class="form-control m-2" id="cookie_type"  placeholder="{{edit_cookie.cookie_type}}" name = "cookie_type">
+            <label for="number_of_boxes" class='m-2'>Number of Boxes</label>
+            <input type="number" class="form-control m-2" id="number_of_boxes"  placeholder="{{edit_cookie.number_of_boxes}}" name = "number_of_boxes">
+        <button methods = "post" type= "submit" class="btn btn-primary m-2" action = "/cookies" >Update Cookie Order</button>
+        </div>
+    </form>
+    
+
+{% endblock %}
