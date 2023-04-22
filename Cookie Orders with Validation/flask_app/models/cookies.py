@@ -5,7 +5,7 @@ class Cookies:
     def __init__(self,data):
             self.id = data["id"]
             self.customer_name = data["customer_name"]
-            self.numer_of_boxes = data["number_of_boxes"]
+            self.number_of_boxes = data["number_of_boxes"]
             self.cookie_type = data["cookie_type"]
             self.created_at = data["created_at"]
             self.updated_at = data["updated_at"]
