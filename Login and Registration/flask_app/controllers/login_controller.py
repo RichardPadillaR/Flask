@@ -10,6 +10,7 @@ def all_users():
 @app.route('/', methods = ['POST'])
 def create_users():
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
+    confirm_pw_hash = bcrypt.generate_password_hash(request.form['confirm_password'])
     if len('password') < 8:
         flash("Password needs to be at least 8 characters.")
         return redirect('/')
@@ -19,7 +20,13 @@ def create_users():
             'last_name' : request.form["last_name"],
             'email' : request.form["email"],
             'password' : pw_hash,
+            'confirm_password' : confirm_pw_hash,
         }
+        if request.form['password'] == request.form['confirm_password']:
+            pass
+        else:
+            flash("Passwords do not match!")
+            redirect('/')
         if not Users.validate_order(user_info):
             return redirect('/')
         else: 
