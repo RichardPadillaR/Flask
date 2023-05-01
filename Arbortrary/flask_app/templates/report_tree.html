@@ -1,0 +1,33 @@
+{% extends 'base2.html' %} {% block content %}
+<div class="container">
+    <h2>Report a Sighting</h2>
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}  
+                {% for message in messages %}
+                    <p class="">{{message}}</p>   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    <form action="/new/tree" class= "d-flex justify-content-between" method = "post">
+        
+        <div>
+            <label for="species">Species:</label>
+            <input type="text" id="species" name= "species">  
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name= "location">
+        </div>
+        <div>
+            <label for="reason" >Reason:</label>
+            <input type="text" id="reason" name= "reason">
+        </div>
+        <div>
+            <label for="date_planted" >Date:</label>
+            <input type="date" id="date_planted" name= "date_planted">
+        </div>
+        <input type="submit" action="/new/tree" value="Report">
+    </form>
+</div>
+
+{% endblock %}

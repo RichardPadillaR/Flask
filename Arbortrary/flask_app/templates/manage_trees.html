@@ -1,0 +1,25 @@
+{% extends 'base2.html' %} {% block content %}
+<h2 class="">Manage My Trees</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Species</th>
+        <th scope="col">Date</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{users_trees.species}}</td>
+        <td>{{users_trees.date_planted}}</td>
+        <td> 
+            <ul class = 'list-unstyled'>
+                <li><a href="/tree/edit/{{users_trees.id}}">Edit</a></li>
+                <li><a href="/delete_tree/{{users_trees.id}}">Delete</a></li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}

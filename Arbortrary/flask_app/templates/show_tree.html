@@ -1,0 +1,10 @@
+{% extends 'base2.html' %} {% block content %}
+<div class="container">
+    <h2 class="">{{tree_info.species}} on {{tree_info.date}}</h2>
+    <h4>Where: {{tree_info.location}}</h4>
+    <h4>When: {{tree_info.date_planted}}</h4>
+    <h4>Reason: {{tree_info.reason}}</h4>
+</div>
+
+
+{% endblock %}

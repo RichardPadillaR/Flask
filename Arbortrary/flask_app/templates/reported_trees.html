@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+<h2 class="">Reported Sightings</h2>
+{% with messages = get_flashed_messages() %}
+            {% if messages %}  
+                {% for message in messages %}
+                    <p class="">{{message}}</p>   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Species</th>
+        <th scope="col">Planted By</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% for one_tree in all_trees %}
+        <td>{{one_tree.species}}</td>
+        <td>{{all_users_trees.first_name}} {{all_users_trees.last_name}}</td>
+        <td>
+            <ul class="list-inline">
+                <li><a href="/tree/show/{{one_tree.id}}">Details</a></li>
+            </ul>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

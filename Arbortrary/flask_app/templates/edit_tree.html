@@ -1,0 +1,31 @@
+{% extends 'base2.html' %} {% block content %}
+<div class="container">
+    <h2>Re-Plant Your Tree</h2>
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}  
+                {% for message in messages %}
+                    <p class="">{{message}}</p>   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    <form action="/tree/edit/{{reported_trees.id}}" class= "d-flex justify-content-between" method = "post">
+        <div>
+            <label for="species">Species:</label>
+            <input type="text" id="species" value="{{reported_trees.species}}" name= "species">
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" value="{{reported_trees.location}}" name= "location">  
+        </div>
+        <div>
+            <label for="reason" >Reason:</label>
+            <input type="reason" id="reason" value="{{reported_trees.reason}}" name= "reason">
+        </div>
+        <div>
+            <label for="date_planted" >Date Planted:</label>
+            <input type="date" id="date_planted" value="{{reported_trees.date_planted}}" name= "date_planted">
+        </div>
+        <input type="submit" action="/tree/edit/{{reported_trees.id}}" method ="post" value="Report">
+    </form>
+</div>
+{% endblock %}
